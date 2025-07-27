@@ -1,0 +1,8 @@
+name: Glow
+author: Cufl
+version: '1.0'
+main: pl.olie.glow.Glow
+api-version: '1.20'
+commands:
+  glow:
+    permission: Glow.use

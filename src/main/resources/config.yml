@@ -1,0 +1,11 @@
+Prefix: "§2Artis§7.§fBest: "
+NoPerms: "§cYou don't have permissions!"
+GlowingOn: "§aGlow was turn ON"
+GlowingOff: "§cGlow was turn OFF"
+OnPlaceholder: "§aOn"
+OffPlaceholder: "§cOff"
+Disabled_world_message: "§cYou can't use glow in game!"
+Usage_message: "§cUsage: /glow"
+DisabledWorlds:
+  - Arenas
+  - Arenas_2
