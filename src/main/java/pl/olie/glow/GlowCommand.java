@@ -20,13 +20,19 @@ public class GlowCommand implements CommandExecutor, Listener {
     private String GlowingOff;
     private String DisabledWorldMessage;
     private String UsageMessage;
+    private String GlowingOnOther;
+    private String GlowingOffOther;
+    private String PlayerOffline;
     public void loadConfigValues() {
-        this.Noperms = plugin.getConfig().getString("Noperms");
-        this.GlowingOn = plugin.getConfig().getString("GlowingOn");
-        this.GlowingOff = plugin.getConfig().getString("GlowingOff");
+        this.Noperms = plugin.getConfig().getString("No-Perms");
+        this.GlowingOn = plugin.getConfig().getString("Glowing-On");
+        this.GlowingOff = plugin.getConfig().getString("Glowing-Off");
         this.disabledWorlds = plugin.getConfig().getStringList("DisabledWorlds");
-        this.DisabledWorldMessage = plugin.getConfig().getString("Disabled_world_message");
-        this.UsageMessage = plugin.getConfig().getString("Usage_message");
+        this.DisabledWorldMessage = plugin.getConfig().getString("Disabled-world-message");
+        this.UsageMessage = plugin.getConfig().getString("Usage-message");
+        this.GlowingOnOther = plugin.getConfig().getString("Glowing-On-other");
+        this.GlowingOffOther = plugin.getConfig().getString("Glowing-Off-other");
+        this.PlayerOffline = plugin.getConfig().getString("Player-offline");
         Glow.prefix =  plugin.getConfig().getString("Prefix");
     }
     public GlowCommand(Glow plugin) {
@@ -74,6 +80,20 @@ public class GlowCommand implements CommandExecutor, Listener {
                 sender.sendMessage("Author: Cufl");
                 sender.sendMessage("Version: 1.0");
                 return true;
+            }else if(sender.hasPermission("Glow.other")){
+                String nick = args[0];
+                Player target = Bukkit.getPlayer(nick);
+                if(target != null && player.isOnline()){
+                    if(target.isGlowing()){
+                        target.setGlowing(false);
+                        player.sendMessage(GlowingOffOther + target);
+                    }else{
+                        target.setGlowing(true);
+                        player.sendMessage(GlowingOnOther + target);
+                    }
+                }else {
+                    return true;
+                }
             }
             else {
                 sender.sendMessage(Glow.prefix + UsageMessage);
