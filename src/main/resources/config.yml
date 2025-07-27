@@ -1,15 +1,15 @@
-Prefix: "§2Artis§7.§fBest: "
-No-Perms: "§cYou don't have permissions!"
-Glowing-On: "§aGlow was turn ON"
-Glowing-Off: "§cGlow was turn OFF"
-OnPlaceholder: "§aOn"
-OffPlaceholder: "§cOff"
-Disabled-world-message: "§cYou can't use glow in game!"
-Usage-message: "§cUsage: /glow"
-Glowing-On-other: "§aGlow was turn ON for "
-Glowing-Off-other: "§cGlow was turn Off for "
-Player-offline: "§cThis player is offline!"
+Prefix: "&6Glow: "
+No-Perms: "&cYou don't have permissions!"
+Glowing-On: "&aGlow was turn ON"
+Glowing-Off: "&cGlow was turn OFF"
+OnPlaceholder: "&aOn"
+OffPlaceholder: "&cOff"
+Disabled-world-message: "&cYou can't use glow in game!"
+Usage-message: "&cUsage: /glow"
+Glowing-On-other: "&aGlow was turn ON for "
+Glowing-Off-other: "&cGlow was turn Off for "
+Player-offline: "&cThis player is offline!"
 Disable-glowing-on-left: true
 DisabledWorlds:
-  - Arenas
-  - Arenas_2
+  - world1
+  - world2
