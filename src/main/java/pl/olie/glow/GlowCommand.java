@@ -53,15 +53,12 @@ public class GlowCommand implements CommandExecutor, Listener {
         if (args.length == 0) {
             if (player.isGlowing()) {
                 player.setGlowing(false);
-                plugin.glowingStatus.put(player.getUniqueId(), false);
                 player.sendMessage(Glow.prefix + GlowingOff);
             } else {
                 if (disabledWorlds.contains(player.getWorld().getName())) {
                     sender.sendMessage(Glow.prefix + DisabledWorldMessage);
                 } else {
                     player.setGlowing(true);
-                    plugin.glowingStatus.put(player.getUniqueId(), true);
-
                     player.sendMessage(Glow.prefix + GlowingOn);
                 }
             }
