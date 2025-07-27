@@ -8,6 +8,7 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerJoinEvent;
+import org.bukkit.event.player.PlayerQuitEvent;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
@@ -107,12 +108,14 @@ public class GlowCommand implements CommandExecutor, Listener {
         return false;
     }
     @EventHandler
-    public void onJoin(PlayerJoinEvent event) {
+    public void onLeft(PlayerQuitEvent event) {
+        Player player = event.getPlayer();
         if(OffOnLeft){
-            Player player = event.getPlayer();
             if(player.isGlowing()) {
                 player.setGlowing(false);
             }
+        }else {
+            player.setGlowing(true);
         }
         }
     }
