@@ -23,6 +23,7 @@ public class GlowCommand implements CommandExecutor, Listener {
     private String GlowingOnOther;
     private String GlowingOffOther;
     private String PlayerOffline;
+    private boolean OffOnLeft;
     public void loadConfigValues() {
         this.Noperms = plugin.getConfig().getString("No-Perms");
         this.GlowingOn = plugin.getConfig().getString("Glowing-On");
@@ -33,6 +34,7 @@ public class GlowCommand implements CommandExecutor, Listener {
         this.GlowingOnOther = plugin.getConfig().getString("Glowing-On-other");
         this.GlowingOffOther = plugin.getConfig().getString("Glowing-Off-other");
         this.PlayerOffline = plugin.getConfig().getString("Player-offline");
+        this.OffOnLeft = plugin.getConfig().getBoolean("Disable-glowing-on-left");
         Glow.prefix =  plugin.getConfig().getString("Prefix");
     }
     public GlowCommand(Glow plugin) {
@@ -86,12 +88,13 @@ public class GlowCommand implements CommandExecutor, Listener {
                 if(target != null && player.isOnline()){
                     if(target.isGlowing()){
                         target.setGlowing(false);
-                        player.sendMessage(GlowingOffOther + target);
+                        player.sendMessage(Glow.prefix + GlowingOffOther + target);
                     }else{
                         target.setGlowing(true);
-                        player.sendMessage(GlowingOnOther + target);
+                        player.sendMessage(Glow.prefix + GlowingOnOther + target);
                     }
                 }else {
+                    player.sendMessage(Glow.prefix+ PlayerOffline);
                     return true;
                 }
             }
@@ -105,9 +108,11 @@ public class GlowCommand implements CommandExecutor, Listener {
     }
     @EventHandler
     public void onJoin(PlayerJoinEvent event) {
-        Player player = event.getPlayer();
-        if(player.isGlowing() && (!player.hasPermission("Glow.use"))) {
-            player.setGlowing(false);
+        if(OffOnLeft){
+            Player player = event.getPlayer();
+            if(player.isGlowing()) {
+                player.setGlowing(false);
+            }
         }
         }
     }

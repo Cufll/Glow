@@ -9,6 +9,7 @@ Usage-message: "§cUsage: /glow"
 Glowing-On-other: "§aGlow was turn ON "
 Glowing-Off-other: "§cGlow was turn Off "
 Player-offline: "§cThis player is offline!"
+Disable-glowing-on-left: true
 DisabledWorlds:
   - Arenas
   - Arenas_2
