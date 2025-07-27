@@ -17,7 +17,7 @@ public class WorldChangeListener implements Listener {
         this.plugin = plugin;
     }
     protected final Map<UUID, String> glowingOnWorldChange = new HashMap<>();
-    public boolean hadGlowing(Player player) {
+    public boolean hadGlow(Player player) {
         return glowingOnWorldChange.containsKey(player.getUniqueId());
     }
     @EventHandler
@@ -32,7 +32,7 @@ public class WorldChangeListener implements Listener {
                 glowingOnWorldChange.put(player.getUniqueId(), name);
             }
         }else{
-            if(hadGlowing(player) && (player.hasPermission("Glow.use"))) {
+            if(hadGlow(player) && (player.hasPermission("Glow.use"))) {
                 player.setGlowing(true);
                 glowingOnWorldChange.remove(player.getUniqueId());
             }
