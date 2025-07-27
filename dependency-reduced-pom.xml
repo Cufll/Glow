@@ -63,13 +63,6 @@
       <version>2.11.6</version>
       <scope>provided</scope>
     </dependency>
-    <dependency>
-      <groupId>me.activated.core</groupId>
-      <artifactId>AquaCoreAPI</artifactId>
-      <version>2.6.20</version>
-      <scope>system</scope>
-      <systemPath>${project.basedir}/libs/AquaCoreAPI.jar</systemPath>
-    </dependency>
   </dependencies>
   <properties>
     <java.version>17</java.version>
