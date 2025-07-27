@@ -25,17 +25,17 @@ public class GlowCommand implements CommandExecutor, Listener {
     private String PlayerOffline;
     private boolean OffOnLeft;
     public void loadConfigValues() {
-        this.Noperms = plugin.getConfig().getString("No-Perms");
-        this.GlowingOn = plugin.getConfig().getString("Glowing-On");
-        this.GlowingOff = plugin.getConfig().getString("Glowing-Off");
+        this.Noperms = plugin.getConfig().getString("No-Perms").replaceAll("&", "§");
+        this.GlowingOn = plugin.getConfig().getString("Glowing-On").replaceAll("&", "§");
+        this.GlowingOff = plugin.getConfig().getString("Glowing-Off").replaceAll("&", "§");
         this.disabledWorlds = plugin.getConfig().getStringList("DisabledWorlds");
-        this.DisabledWorldMessage = plugin.getConfig().getString("Disabled-world-message");
-        this.UsageMessage = plugin.getConfig().getString("Usage-message");
-        this.GlowingOnOther = plugin.getConfig().getString("Glowing-On-other");
-        this.GlowingOffOther = plugin.getConfig().getString("Glowing-Off-other");
-        this.PlayerOffline = plugin.getConfig().getString("Player-offline");
+        this.DisabledWorldMessage = plugin.getConfig().getString("Disabled-world-message").replaceAll("&", "§");
+        this.UsageMessage = plugin.getConfig().getString("Usage-message").replaceAll("&", "§");
+        this.GlowingOnOther = plugin.getConfig().getString("Glowing-On-other").replaceAll("&", "§");
+        this.GlowingOffOther = plugin.getConfig().getString("Glowing-Off-other").replaceAll("&", "§");
+        this.PlayerOffline = plugin.getConfig().getString("Player-offline").replaceAll("&", "§");
         this.OffOnLeft = plugin.getConfig().getBoolean("Disable-glowing-on-left");
-        Glow.prefix =  plugin.getConfig().getString("Prefix");
+        Glow.prefix =  plugin.getConfig().getString("Prefix").replaceAll("&", "§");
     }
     public GlowCommand(Glow plugin) {
         this.plugin = plugin;
