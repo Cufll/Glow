@@ -6,9 +6,9 @@ OnPlaceholder: "&aOn"
 OffPlaceholder: "&cOff"
 Disabled-world-message: "&cYou can't use glow in game!"
 Usage-message: "&cUsage: /glow"
-Glowing-On-other: "&aGlow was turn ON for "
-Glowing-Off-other: "&cGlow was turn Off for "
-Player-offline: "&cThis player is offline!"
+Glowing-On-other: "&aGlow was turn ON for %target%"
+Glowing-Off-other: "&cGlow was turn Off for %target%"
+Player-offline: "&c%target% is offline!"
 Disable-glowing-on-left: true
 DisabledWorlds:
   - world1

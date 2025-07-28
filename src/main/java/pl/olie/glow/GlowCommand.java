@@ -62,13 +62,13 @@ public class GlowCommand implements CommandExecutor, Listener {
                 if(target != null && player.isOnline()){
                     if(target.isGlowing()){
                         target.setGlowing(false);
-                        player.sendMessage(Glow.prefix + config.getGlowingOffOther() + nick);
+                        player.sendMessage(Glow.prefix + config.getGlowingOffOther().replaceAll("%target%", nick));
                     }else{
                         target.setGlowing(true);
-                        player.sendMessage(Glow.prefix + config.getGlowingOnOther() + nick);
+                        player.sendMessage(Glow.prefix + config.getGlowingOnOther().replaceAll("%target%", nick));
                     }
                 }else {
-                    player.sendMessage(Glow.prefix + config.getPlayerOffline());
+                    player.sendMessage(Glow.prefix + config.getPlayerOffline().replaceAll("%target%", nick));
                     return true;
                 }
             }
