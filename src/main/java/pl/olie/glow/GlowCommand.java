@@ -24,19 +24,19 @@ public class GlowCommand implements CommandExecutor, Listener {
             return true;
         }
         if (!player.hasPermission("Glow.use")) {
-            player.sendMessage(Glow.prefix + config.noPerms);
+            player.sendMessage(Glow.prefix + config.getNoPerms());
             return true;
         }
         if (args.length == 0) {
             if (player.isGlowing()) {
                 player.setGlowing(false);
-                player.sendMessage(Glow.prefix + config.glowingOff);
+                player.sendMessage(Glow.prefix + config.getGlowingOff());
             } else {
-                if (config.disabledWorlds.contains(player.getWorld().getName())) {
-                    sender.sendMessage(Glow.prefix + config.disabledWorldMessage);
+                if (config.getDisabledWorlds().contains(player.getWorld().getName())) {
+                    sender.sendMessage(Glow.prefix + config.getDisabledWorldMessage());
                 } else {
                     player.setGlowing(true);
-                    player.sendMessage(Glow.prefix + config.glowingOn);
+                    player.sendMessage(Glow.prefix + config.getGlowingOn());
                 }
             }
             return true;
@@ -45,7 +45,7 @@ public class GlowCommand implements CommandExecutor, Listener {
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("reload")) {
                 if (!sender.hasPermission("Glow.reload")) {
-                    sender.sendMessage(Glow.prefix + config.noPerms);
+                    sender.sendMessage(Glow.prefix + config.getNoPerms());
                 } else {
                     plugin.reloadConfig();
                     config.loadConfigValues();
@@ -62,18 +62,18 @@ public class GlowCommand implements CommandExecutor, Listener {
                 if(target != null && player.isOnline()){
                     if(target.isGlowing()){
                         target.setGlowing(false);
-                        player.sendMessage(Glow.prefix + config.glowingOffOther + nick);
+                        player.sendMessage(Glow.prefix + config.getGlowingOffOther() + nick);
                     }else{
                         target.setGlowing(true);
-                        player.sendMessage(Glow.prefix + config.glowingOnOther + nick);
+                        player.sendMessage(Glow.prefix + config.getGlowingOnOther() + nick);
                     }
                 }else {
-                    player.sendMessage(Glow.prefix + config.playerOffline);
+                    player.sendMessage(Glow.prefix + config.getPlayerOffline());
                     return true;
                 }
             }
             else {
-                sender.sendMessage(Glow.prefix + config.usageMessage);
+                sender.sendMessage(Glow.prefix + config.getUsageMessage());
                 return true;
             }
         }
@@ -83,7 +83,7 @@ public class GlowCommand implements CommandExecutor, Listener {
     @EventHandler
     public void onLeft(PlayerQuitEvent event) {
         Player player = event.getPlayer();
-        if(config.offOnLeft){
+        if(config.getOffOnLeft()){
             if(player.isGlowing()) {
                 player.setGlowing(false);
             }

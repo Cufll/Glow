@@ -8,18 +8,18 @@ public class Config {
         loadConfigValues();
     }
     private final Glow plugin;
-    public List<String> disabledWorlds;
-    public String noPerms;
-    public String glowingOn;
-    public String glowingOff;
-    public String disabledWorldMessage;
-    public String usageMessage;
-    public String glowingOnOther;
-    public String glowingOffOther;
-    public String playerOffline;
-    public boolean offOnLeft;
-    public String onPlaceholder;
-    public String offPlaceholder;
+    private List<String> disabledWorlds;
+    private String noPerms;
+    private String glowingOn;
+    private String glowingOff;
+    private String disabledWorldMessage;
+    private String usageMessage;
+    private String glowingOnOther;
+    private String glowingOffOther;
+    private String playerOffline;
+    private boolean offOnLeft;
+    private String onPlaceholder;
+    private String offPlaceholder;
     public void loadConfigValues() {
         this.noPerms = plugin.getConfig().getString("No-Perms").replaceAll("&", "§");
         this.glowingOn = plugin.getConfig().getString("Glowing-On").replaceAll("&", "§");
@@ -35,4 +35,16 @@ public class Config {
         this.onPlaceholder = this.plugin.getConfig().getString("OnPlaceholder").replaceAll("&", "§");
         this.offPlaceholder = this.plugin.getConfig().getString("OffPlaceholder").replaceAll("&", "§");
     }
+    public String getNoPerms(){return noPerms;}
+    public List<String> getDisabledWorlds(){return disabledWorlds;}
+    public String getGlowingOn(){return glowingOn;}
+    public String getGlowingOff(){return glowingOff;}
+    public String getDisabledWorldMessage(){return disabledWorldMessage;}
+    public String getUsageMessage(){return usageMessage;}
+    public String getGlowingOnOther(){return glowingOnOther;}
+    public String getGlowingOffOther(){return glowingOffOther;}
+    public String getPlayerOffline(){return playerOffline;}
+    public boolean getOffOnLeft(){return offOnLeft;}
+    public String getOnPlaceholder(){return onPlaceholder;}
+    public String getOffPlaceholder(){return offPlaceholder;}
 }
