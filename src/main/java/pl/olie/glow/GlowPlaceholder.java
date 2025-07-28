@@ -27,7 +27,7 @@ public class GlowPlaceholder extends PlaceholderExpansion{
     @Override
     public String onPlaceholderRequest(Player player,String identifier) {
         if (identifier.equalsIgnoreCase("status")) {
-            return player.isGlowing() ? config.OnPlaceholder : config.OffPlaceholder;
+            return player.isGlowing() ? config.onPlaceholder : config.offPlaceholder;
         }
         return null;
     }

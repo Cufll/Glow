@@ -9,30 +9,30 @@ public class Config {
     }
     private final Glow plugin;
     public List<String> disabledWorlds;
-    public String Noperms;
-    public String GlowingOn;
-    public String GlowingOff;
-    public String DisabledWorldMessage;
-    public String UsageMessage;
-    public String GlowingOnOther;
-    public String GlowingOffOther;
-    public String PlayerOffline;
-    public boolean OffOnLeft;
-    public String OnPlaceholder;
-    public String OffPlaceholder;
+    public String noPerms;
+    public String glowingOn;
+    public String glowingOff;
+    public String disabledWorldMessage;
+    public String usageMessage;
+    public String glowingOnOther;
+    public String glowingOffOther;
+    public String playerOffline;
+    public boolean offOnLeft;
+    public String onPlaceholder;
+    public String offPlaceholder;
     public void loadConfigValues() {
-        this.Noperms = plugin.getConfig().getString("No-Perms").replaceAll("&", "§");
-        this.GlowingOn = plugin.getConfig().getString("Glowing-On").replaceAll("&", "§");
-        this.GlowingOff = plugin.getConfig().getString("Glowing-Off").replaceAll("&", "§");
+        this.noPerms = plugin.getConfig().getString("No-Perms").replaceAll("&", "§");
+        this.glowingOn = plugin.getConfig().getString("Glowing-On").replaceAll("&", "§");
+        this.glowingOff = plugin.getConfig().getString("Glowing-Off").replaceAll("&", "§");
         this.disabledWorlds = plugin.getConfig().getStringList("DisabledWorlds");
-        this.DisabledWorldMessage = plugin.getConfig().getString("Disabled-world-message").replaceAll("&", "§");
-        this.UsageMessage = plugin.getConfig().getString("Usage-message").replaceAll("&", "§");
-        this.GlowingOnOther = plugin.getConfig().getString("Glowing-On-other").replaceAll("&", "§");
-        this.GlowingOffOther = plugin.getConfig().getString("Glowing-Off-other").replaceAll("&", "§");
-        this.PlayerOffline = plugin.getConfig().getString("Player-offline").replaceAll("&", "§");
-        this.OffOnLeft = plugin.getConfig().getBoolean("Disable-glowing-on-left");
+        this.disabledWorldMessage = plugin.getConfig().getString("Disabled-world-message").replaceAll("&", "§");
+        this.usageMessage = plugin.getConfig().getString("Usage-message").replaceAll("&", "§");
+        this.glowingOnOther = plugin.getConfig().getString("Glowing-On-other").replaceAll("&", "§");
+        this.glowingOffOther = plugin.getConfig().getString("Glowing-Off-other").replaceAll("&", "§");
+        this.playerOffline = plugin.getConfig().getString("Player-offline").replaceAll("&", "§");
+        this.offOnLeft = plugin.getConfig().getBoolean("Disable-glowing-on-left");
         Glow.prefix =  plugin.getConfig().getString("Prefix");
-        this.OnPlaceholder = this.plugin.getConfig().getString("OnPlaceholder").replaceAll("&", "§");
-        this.OffPlaceholder = this.plugin.getConfig().getString("OffPlaceholder").replaceAll("&", "§");
+        this.onPlaceholder = this.plugin.getConfig().getString("OnPlaceholder").replaceAll("&", "§");
+        this.offPlaceholder = this.plugin.getConfig().getString("OffPlaceholder").replaceAll("&", "§");
     }
 }
