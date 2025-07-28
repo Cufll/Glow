@@ -12,7 +12,7 @@ public final class Glow extends JavaPlugin {
     @Override
     public void onEnable() {
         configValues = new Config(this);
-        prefix = getConfig().getString("Prefix");
+        prefix = getConfig().getString("Prefix").replaceAll("&", "§");;
         GlowCommand glowCommand = new GlowCommand(this);
         Objects.requireNonNull(getCommand("glow")).setExecutor(new GlowCommand(this));
         getServer().getPluginManager().registerEvents(new WorldChangeListener(this), this);

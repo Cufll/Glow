@@ -31,7 +31,7 @@ public class Config {
         this.GlowingOffOther = plugin.getConfig().getString("Glowing-Off-other").replaceAll("&", "§");
         this.PlayerOffline = plugin.getConfig().getString("Player-offline").replaceAll("&", "§");
         this.OffOnLeft = plugin.getConfig().getBoolean("Disable-glowing-on-left");
-        Glow.prefix =  plugin.getConfig().getString("Prefix").replaceAll("&", "§");
+        Glow.prefix =  plugin.getConfig().getString("Prefix");
         this.OnPlaceholder = this.plugin.getConfig().getString("OnPlaceholder").replaceAll("&", "§");
         this.OffPlaceholder = this.plugin.getConfig().getString("OffPlaceholder").replaceAll("&", "§");
     }
