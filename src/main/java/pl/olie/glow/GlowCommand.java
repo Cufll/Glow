@@ -9,8 +9,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
-
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -27,7 +25,7 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
             sender.sendMessage(Glow.prefix + "Only players can use this command.");
             return true;
         }
-        if (!player.hasPermission("Glow.use")) {
+        if (!player.hasPermission("glow.use")) {
             player.sendMessage(Glow.prefix + config.getNoPerms());
             return true;
         }
@@ -48,7 +46,7 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
 
         if (args.length == 1) {
             if (args[0].equalsIgnoreCase("reload")) {
-                if (!sender.hasPermission("Glow.reload")) {
+                if (!sender.hasPermission("glow.reload")) {
                     sender.sendMessage(Glow.prefix + config.getNoPerms());
                 } else {
                     plugin.reloadConfig();
@@ -60,7 +58,7 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
                 sender.sendMessage("Author: Cufl");
                 sender.sendMessage("Version: 1.0");
                 return true;
-            }else if(sender.hasPermission("Glow.other")){
+            }else if(sender.hasPermission("glow.other")){
                 String nick = args[0];
                 Player target = Bukkit.getPlayer(nick);
                 if(target != null && player.isOnline()){
@@ -87,7 +85,7 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
     @Override
     public List<String> onTabComplete(CommandSender sender,Command cmd,String label,String[] args) {
 
-        if(sender instanceof Player) {
+        if(sender instanceof Player player && player.hasPermission("glow.reload")) {
             return List.of("reload");
         }
         return null;
