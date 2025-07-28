@@ -21,19 +21,25 @@ public class Config {
     private String onPlaceholder;
     private String offPlaceholder;
     public void loadConfigValues() {
-        this.noPerms = plugin.getConfig().getString("No-Perms").replaceAll("&", "§");
-        this.glowingOn = plugin.getConfig().getString("Glowing-On").replaceAll("&", "§");
-        this.glowingOff = plugin.getConfig().getString("Glowing-Off").replaceAll("&", "§");
+        this.noPerms = colorize(plugin.getConfig().getString("No-Perms"));
+        this.glowingOn = colorize(plugin.getConfig().getString("Glowing-On"));
+        this.glowingOff = colorize(plugin.getConfig().getString("Glowing-Off"));
         this.disabledWorlds = plugin.getConfig().getStringList("DisabledWorlds");
-        this.disabledWorldMessage = plugin.getConfig().getString("Disabled-world-message").replaceAll("&", "§");
-        this.usageMessage = plugin.getConfig().getString("Usage-message").replaceAll("&", "§");
-        this.glowingOnOther = plugin.getConfig().getString("Glowing-On-other").replaceAll("&", "§");
-        this.glowingOffOther = plugin.getConfig().getString("Glowing-Off-other").replaceAll("&", "§");
-        this.playerOffline = plugin.getConfig().getString("Player-offline").replaceAll("&", "§");
+        this.disabledWorldMessage = colorize(plugin.getConfig().getString("Disabled-world-message"));
+        this.usageMessage = colorize(plugin.getConfig().getString("Usage-message"));
+        this.glowingOnOther = colorize(plugin.getConfig().getString("Glowing-On-other"));
+        this.glowingOffOther = colorize(plugin.getConfig().getString("Glowing-Off-other"));
+        this.playerOffline = colorize(plugin.getConfig().getString("Player-offline"));
         this.offOnLeft = plugin.getConfig().getBoolean("Disable-glowing-on-left");
         Glow.prefix =  plugin.getConfig().getString("Prefix");
-        this.onPlaceholder = this.plugin.getConfig().getString("OnPlaceholder").replaceAll("&", "§");
-        this.offPlaceholder = this.plugin.getConfig().getString("OffPlaceholder").replaceAll("&", "§");
+        this.onPlaceholder = colorize(plugin.getConfig().getString("OnPlaceholder"));
+        this.offPlaceholder = colorize(plugin.getConfig().getString("OffPlaceholder"));
+    }
+    private String colorize(String text) {
+        if(text == null){
+            return "";
+        }
+        return text.replace("&", "§");
     }
     public String getNoPerms(){return noPerms;}
     public List<String> getDisabledWorlds(){return disabledWorlds;}
