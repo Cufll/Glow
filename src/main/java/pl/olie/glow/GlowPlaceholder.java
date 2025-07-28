@@ -5,15 +5,10 @@ import org.bukkit.entity.Player;
 
 public class GlowPlaceholder extends PlaceholderExpansion{
     private final Glow plugin;
-    private String OnPlaceholder;
-    private String OffPlaceholder;
-    public void loadConfigValues() {
-        this.OnPlaceholder = this.plugin.getConfig().getString("OnPlaceholder");
-        this.OffPlaceholder = this.plugin.getConfig().getString("OffPlaceholder");
-    }
+    private final Config config;
     public GlowPlaceholder(Glow plugin) {
         this.plugin = plugin;
-        loadConfigValues();
+        this.config = plugin.getConfigValues();
     }
     @Override
     public String getIdentifier() {
@@ -32,7 +27,7 @@ public class GlowPlaceholder extends PlaceholderExpansion{
     @Override
     public String onPlaceholderRequest(Player player,String identifier) {
         if (identifier.equalsIgnoreCase("status")) {
-            return player.isGlowing() ? OnPlaceholder : OffPlaceholder;
+            return player.isGlowing() ? config.OnPlaceholder : config.OffPlaceholder;
         }
         return null;
     }
