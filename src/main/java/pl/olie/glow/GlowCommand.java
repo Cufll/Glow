@@ -8,7 +8,6 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
-import org.jetbrains.annotations.NotNull;
 
 import java.util.List;
 
@@ -41,7 +40,7 @@ public class GlowCommand implements CommandExecutor, Listener {
         this.plugin = plugin;
         loadConfigValues();
     }
-    public boolean onCommand(@NotNull CommandSender sender, @NotNull Command cmd, @NotNull String label, String[] args) {
+    public boolean onCommand(CommandSender sender, Command cmd,String label, String[] args) {
         if (!(sender instanceof Player player)) {
             sender.sendMessage(Glow.prefix + "Only players can use this command.");
             return true;

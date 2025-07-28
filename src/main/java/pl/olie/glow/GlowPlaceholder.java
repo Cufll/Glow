@@ -2,7 +2,6 @@ package pl.olie.glow;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
-import org.jetbrains.annotations.NotNull;
 
 public class GlowPlaceholder extends PlaceholderExpansion{
     private final Glow plugin;
@@ -17,17 +16,17 @@ public class GlowPlaceholder extends PlaceholderExpansion{
         loadConfigValues();
     }
     @Override
-    public @NotNull String getIdentifier() {
+    public String getIdentifier() {
         return "glow";
     }
 
     @Override
-    public @NotNull String getAuthor() {
+    public String getAuthor() {
         return "Cufl";
     }
 
     @Override
-    public @NotNull String getVersion() {
+    public String getVersion() {
         return plugin.getDescription().getVersion();
     }
     @Override
