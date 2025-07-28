@@ -9,6 +9,9 @@ import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
+
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 
@@ -83,13 +86,24 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
         return false;
     }
     @Override
-    public List<String> onTabComplete(CommandSender sender,Command cmd,String label,String[] args) {
-
-        if(sender instanceof Player player && player.hasPermission("glow.reload")) {
-            return List.of("reload");
+    public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
+        if (args.length == 1) {
+            List<String> tab = new ArrayList<>();
+            if (sender.hasPermission("glow.reload") && "reload".startsWith(args[0].toLowerCase())) {
+                tab.add("reload");
+            }
+            if (sender.hasPermission("glow.other")) {
+                for (Player online : Bukkit.getOnlinePlayers()) {
+                    if (online.getName().toLowerCase().startsWith(args[0].toLowerCase())) {
+                        tab.add(online.getName());
+                    }
+                }
+            }
+            return tab;
         }
-        return null;
+        return List.of();
     }
+
     @EventHandler
     public void onLeft(PlayerQuitEvent event) {
         Player player = event.getPlayer();
