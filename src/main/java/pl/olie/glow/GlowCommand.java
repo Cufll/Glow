@@ -4,13 +4,17 @@ import org.bukkit.Bukkit;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
+import org.bukkit.command.TabCompleter;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
+import java.util.Arrays;
+import java.util.List;
 
-public class GlowCommand implements CommandExecutor, Listener {
+
+public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
     private final Glow plugin;
     private final Config config;
     public GlowCommand(Glow plugin) {
@@ -79,6 +83,14 @@ public class GlowCommand implements CommandExecutor, Listener {
         }
 
         return false;
+    }
+    @Override
+    public List<String> onTabComplete(CommandSender sender,Command cmd,String label,String[] args) {
+
+        if(sender instanceof Player) {
+            return List.of("reload");
+        }
+        return null;
     }
     @EventHandler
     public void onLeft(PlayerQuitEvent event) {
