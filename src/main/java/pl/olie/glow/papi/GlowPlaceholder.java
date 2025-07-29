@@ -1,7 +1,8 @@
-package pl.olie.glow;
+package pl.olie.glow.papi;
 
 import me.clip.placeholderapi.expansion.PlaceholderExpansion;
 import org.bukkit.entity.Player;
+import pl.olie.glow.Glow;
 import pl.olie.glow.config.Config;
 
 public class GlowPlaceholder extends PlaceholderExpansion{
