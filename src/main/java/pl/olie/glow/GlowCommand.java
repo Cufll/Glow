@@ -89,8 +89,9 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
     public List<String> onTabComplete(CommandSender sender, Command cmd, String label, String[] args) {
         if (args.length == 1) {
             List<String> tab = new ArrayList<>();
-            if (sender.hasPermission("glow.reload") && "reload".startsWith(args[0].toLowerCase())) {
+            if (sender.hasPermission("glow.reload")) {
                 tab.add("reload");
+                tab.add("author");
             }
             if (sender.hasPermission("glow.other")) {
                 for (Player online : Bukkit.getOnlinePlayers()) {
@@ -103,14 +104,4 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
         }
         return List.of();
     }
-
-    @EventHandler
-    public void onLeft(PlayerQuitEvent event) {
-        Player player = event.getPlayer();
-        if(config.getOffOnLeft()){
-            if(player.isGlowing()) {
-                player.setGlowing(false);
-            }
-        }
-        }
     }
