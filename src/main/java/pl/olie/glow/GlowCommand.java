@@ -11,7 +11,6 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerQuitEvent;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 
@@ -28,11 +27,11 @@ public class GlowCommand implements CommandExecutor, Listener, TabCompleter {
             sender.sendMessage(Glow.prefix + "Only players can use this command.");
             return true;
         }
-        if (!player.hasPermission("glow.use")) {
-            player.sendMessage(Glow.prefix + config.getNoPerms());
-            return true;
-        }
         if (args.length == 0) {
+            if (!player.hasPermission("glow.use")) {
+                player.sendMessage(Glow.prefix + config.getNoPerms());
+                return true;
+            }
             if (player.isGlowing()) {
                 player.setGlowing(false);
                 player.sendMessage(Glow.prefix + config.getGlowingOff());

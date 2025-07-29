@@ -11,10 +11,8 @@ import java.util.Map;
 import java.util.UUID;
 
 public class WorldChangeListener implements Listener {
-    private final Glow plugin;
     private final Config config;
     public WorldChangeListener(Glow plugin) {
-        this.plugin = plugin;
         this.config = plugin.getConfigValues();
     }
     protected final Map<UUID, String> glowingOnWorldChange = new HashMap<>();
@@ -25,8 +23,7 @@ public class WorldChangeListener implements Listener {
     public void onWorldChange(PlayerChangedWorldEvent event) {
         Player player = event.getPlayer();
         List<String> disabledWorlds = config.getDisabledWorlds();
-        String worldName = event.getPlayer().getWorld().getName();
-        if (disabledWorlds.contains(worldName)) {
+        if (disabledWorlds.contains(event.getPlayer().getWorld().getName())) {
             if(player.isGlowing()) {
                 player.setGlowing(false);
                 String name = player.getName();
