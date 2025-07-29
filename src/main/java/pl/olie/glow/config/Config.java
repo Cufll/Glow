@@ -1,4 +1,6 @@
-package pl.olie.glow;
+package pl.olie.glow.config;
+
+import pl.olie.glow.Glow;
 
 import java.util.List;
 

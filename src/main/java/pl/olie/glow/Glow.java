@@ -1,6 +1,7 @@
 package pl.olie.glow;
 
 import org.bukkit.plugin.java.JavaPlugin;
+import pl.olie.glow.config.Config;
 import pl.olie.glow.listeners.WorldChangeListener;
 
 import java.util.Objects;
