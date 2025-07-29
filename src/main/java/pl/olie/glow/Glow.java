@@ -2,6 +2,7 @@ package pl.olie.glow;
 
 import org.bukkit.plugin.java.JavaPlugin;
 import pl.olie.glow.config.Config;
+import pl.olie.glow.listeners.PlayerQuitListener;
 import pl.olie.glow.listeners.WorldChangeListener;
 import pl.olie.glow.papi.GlowPlaceholder;
 
@@ -21,6 +22,7 @@ public final class Glow extends JavaPlugin {
         Objects.requireNonNull(getCommand("glow")).setExecutor(new GlowCommand(this));
         getServer().getPluginManager().registerEvents(new WorldChangeListener(this), this);
         getServer().getPluginManager().registerEvents(new GlowCommand(this), this);
+        getServer().getPluginManager().registerEvents(new PlayerQuitListener(this), this);
         new GlowPlaceholder(this).register();
         saveDefaultConfig();
     }
