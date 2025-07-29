@@ -1,9 +1,11 @@
-package pl.olie.glow;
+package pl.olie.glow.listeners;
 
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.player.PlayerChangedWorldEvent;
+import pl.olie.glow.Config;
+import pl.olie.glow.Glow;
 
 import java.util.HashMap;
 import java.util.List;
