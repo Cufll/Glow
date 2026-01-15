@@ -10,7 +10,7 @@ Simple plugin that allows players to toggle glow effect on themselves and other 
 `/glow reload` – reload configuration  
 
 ## 🔐 Permissions  
-`fireball.reload` – reload configuration  
+`glow.reload` – reload configuration  
 
 ## 🧩 Placeholders  
 `%glow_status%` – status of the glow  
